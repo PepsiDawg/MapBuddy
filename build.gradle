@@ -1,0 +1,30 @@
+group 'io.github.pepsidawg.mapbuddy'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    provided 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compile files('libs/command-framework-bukkit-0.6-SNAPSHOT.jar')
+}
+
+jar {
+    from {
+        (configurations.compile - configurations.provided).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
