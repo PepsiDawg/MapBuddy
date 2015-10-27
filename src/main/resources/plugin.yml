@@ -1,0 +1,5 @@
+main: io.github.pepsidawg.mapbuddy.MapBuddy
+name: Map Buddy
+authors: [PepsiDog]
+version: 1.0.0-SNAPSHOT
+description: A simple plugin to help aid in map building
