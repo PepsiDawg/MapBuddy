@@ -2,10 +2,13 @@ package io.github.pepsidawg.mapbuddy;
 
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
+import io.github.pepsidawg.mapbuddy.maptools.commandbinder.Bind;
+import io.github.pepsidawg.mapbuddy.maptools.commandbinder.BindListener;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
@@ -17,6 +20,7 @@ public class MapBuddy extends JavaPlugin {
 
     public void onEnable() {
         setupCommands();
+        setupListeners();
     }
 
     public void onDisable() {
@@ -30,7 +34,15 @@ public class MapBuddy extends JavaPlugin {
                 return sender instanceof ConsoleCommandSender || sender.hasPermission(perm);
             }
         };
+
         CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
+        cmdRegister.register(new Bind().getClass());
+    }
+
+    private void setupListeners() {
+        PluginManager pm = getServer().getPluginManager();
+
+        pm.registerEvents(new BindListener(), this);
     }
 
     @Override
