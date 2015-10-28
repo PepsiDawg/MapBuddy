@@ -2,7 +2,10 @@
 # Map Buddy config.yml
 #
 # coloredchat enabled: true - allows for color codes to be used in chat
+# voidprotect enabled: true - will stop you from falling out of the world
 ##
 mapbuddy:
   coloredchat:
+    enabled: true
+  voidprotect:
     enabled: true

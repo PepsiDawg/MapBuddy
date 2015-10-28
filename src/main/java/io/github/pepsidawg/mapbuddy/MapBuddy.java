@@ -7,6 +7,7 @@ import io.github.pepsidawg.mapbuddy.maptools.ColoredChat.ColoredChat;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.Bind;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.BindListener;
 import io.github.pepsidawg.mapbuddy.maptools.velocity.Velocity;
+import io.github.pepsidawg.mapbuddy.maptools.voidstop.VoidStop;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -60,6 +61,9 @@ public class MapBuddy extends JavaPlugin {
 
         if(getConfig().getBoolean("mapbuddy.coloredchat.enabled"))
             pm.registerEvents(new ColoredChat(), this);
+
+        if(getConfig().getBoolean("mapbuddy.voidprotect.enabled"))
+            pm.registerEvents(new VoidStop(), this);
     }
 
     @Override
