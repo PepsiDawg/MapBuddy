@@ -2,6 +2,8 @@ package io.github.pepsidawg.mapbuddy;
 
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
+import io.github.pepsidawg.mapbuddy.maptools.ColoredChat.Cchat;
+import io.github.pepsidawg.mapbuddy.maptools.ColoredChat.ColoredChat;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.Bind;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.BindListener;
 import io.github.pepsidawg.mapbuddy.maptools.velocity.Velocity;
@@ -18,14 +20,23 @@ import java.util.List;
 
 public class MapBuddy extends JavaPlugin {
     private CommandsManager<CommandSender> commands;
+    private static MapBuddy self;
 
     public void onEnable() {
+        self = this;
+        this.getConfig().options().copyDefaults(true);
+        saveConfig();
+
         setupCommands();
         setupListeners();
     }
 
     public void onDisable() {
 
+    }
+
+    public static MapBuddy getInstance() {
+        return self;
     }
 
     private void setupCommands() {
@@ -38,6 +49,7 @@ public class MapBuddy extends JavaPlugin {
 
         CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
         cmdRegister.register(Velocity.class);
+        cmdRegister.register(Cchat.class);
         cmdRegister.register(new Bind().getClass());
     }
 
@@ -45,6 +57,9 @@ public class MapBuddy extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
 
         pm.registerEvents(new BindListener(), this);
+
+        if(getConfig().getBoolean("mapbuddy.coloredchat.enabled"))
+            pm.registerEvents(new ColoredChat(), this);
     }
 
     @Override

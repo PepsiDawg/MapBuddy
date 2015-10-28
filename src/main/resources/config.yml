@@ -1,3 +1,8 @@
 ##
 # Map Buddy config.yml
+#
+# coloredchat enabled: true - allows for color codes to be used in chat
 ##
+mapbuddy:
+  coloredchat:
+    enabled: true
