@@ -22,6 +22,7 @@ public class Bind {
             aliases = {"bind"},
             desc = "Binds a command to an item",
             usage = "[clear | <command>]",
+            anyFlags = true,
             min = 1, max = -1
     )
     @CommandPermissions("mapbuddy.bind")
