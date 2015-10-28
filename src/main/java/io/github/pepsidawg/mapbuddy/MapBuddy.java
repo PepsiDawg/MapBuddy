@@ -4,6 +4,7 @@ import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.Bind;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.BindListener;
+import io.github.pepsidawg.mapbuddy.maptools.velocity.Velocity;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -36,6 +37,7 @@ public class MapBuddy extends JavaPlugin {
         };
 
         CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
+        cmdRegister.register(Velocity.class);
         cmdRegister.register(new Bind().getClass());
     }
 
@@ -70,6 +72,10 @@ public class MapBuddy extends JavaPlugin {
             }
         } catch (CommandException e) {
             sender.sendMessage(ChatColor.RED + e.getMessage());
+            if (debug) {
+                e.getCause().printStackTrace();
+                debug = false;
+            }
         }
 
         return true;
