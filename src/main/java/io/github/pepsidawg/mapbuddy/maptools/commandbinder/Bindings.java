@@ -1,6 +1,6 @@
 package io.github.pepsidawg.mapbuddy.maptools.commandbinder;
 
-import io.github.pepsidawg.mapbuddy.utilities.triplet.Triplet;
+import io.github.pepsidawg.peplib.Triplet.Triplet;
 import org.bukkit.Material;
 
 import java.util.UUID;
