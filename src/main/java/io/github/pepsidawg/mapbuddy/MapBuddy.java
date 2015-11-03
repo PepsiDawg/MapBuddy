@@ -2,10 +2,11 @@ package io.github.pepsidawg.mapbuddy;
 
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
-import io.github.pepsidawg.mapbuddy.maptools.ColoredChat.Cchat;
-import io.github.pepsidawg.mapbuddy.maptools.ColoredChat.ColoredChat;
+import io.github.pepsidawg.mapbuddy.maptools.coloredchat.Cchat;
+import io.github.pepsidawg.mapbuddy.maptools.coloredchat.ColoredChat;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.Bind;
 import io.github.pepsidawg.mapbuddy.maptools.commandbinder.BindListener;
+import io.github.pepsidawg.mapbuddy.maptools.uuidlookup.UUIDLookup;
 import io.github.pepsidawg.mapbuddy.maptools.velocity.Velocity;
 import io.github.pepsidawg.mapbuddy.maptools.voidstop.VoidStop;
 import org.bukkit.ChatColor;
@@ -51,6 +52,7 @@ public class MapBuddy extends JavaPlugin {
         CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
         cmdRegister.register(Velocity.class);
         cmdRegister.register(Cchat.class);
+        cmdRegister.register(UUIDLookup.class);
         cmdRegister.register(new Bind().getClass());
     }
 

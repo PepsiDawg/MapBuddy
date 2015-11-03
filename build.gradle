@@ -19,6 +19,8 @@ repositories {
 dependencies {
     provided 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
     compile files('libs/command-framework-bukkit-0.6-SNAPSHOT.jar')
+    compile files('libs/json-20141113.jar')
+    compile files('libs/PepLib-0.1.0.jar')
 }
 
 jar {
