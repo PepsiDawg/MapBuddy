@@ -16,7 +16,7 @@ public class UUIDLookup {
             usage = "<player>",
             min = 1, max = 1
     )
-    @CommandPermissions({"uuid.lookup"})
+    @CommandPermissions({"mapbuddy.uuid"})
     public static void findUUID(CommandContext args, CommandSender sender) throws Exception {
         UUID uuid = GETHandler.getUsernameUUID(args.getString(0));
         sender.sendMessage(ChatColor.GREEN + args.getString(0) + ": " + uuid.toString());
