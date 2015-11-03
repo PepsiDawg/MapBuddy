@@ -1,4 +1,4 @@
-package io.github.pepsidawg.mapbuddy.maptools.ColoredChat;
+package io.github.pepsidawg.mapbuddy.maptools.coloredchat;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;

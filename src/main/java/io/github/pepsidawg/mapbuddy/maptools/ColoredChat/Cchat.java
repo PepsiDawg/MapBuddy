@@ -1,4 +1,4 @@
-package io.github.pepsidawg.mapbuddy.maptools.ColoredChat;
+package io.github.pepsidawg.mapbuddy.maptools.coloredchat;
 
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
